@@ -1,0 +1,55 @@
+.Background {
+    background-color: #212121;
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    border-radius: 20px;
+}
+h1 {
+    margin-top: 5%;
+    text-align: center;
+    color: white;
+}
+p {
+    margin-top: 5%;
+    text-align: center;
+    color: white;
+}
+a {
+    margin-top: 5%;
+    text-align: center;
+    padding-left: 40%;
+    color: white;
+}
+.SearchBar {
+    display: block;
+    margin : 0 auto;
+    margin-top: 3%;
+    width: 35%;
+    height: 7%;
+    border-color: #332F2F;
+    border-radius: 2px;
+    text-align: center;
+}
+.SearchBar2 {
+    display: block;
+    margin : 0 auto;
+    margin-top: 1%;
+    width: 35%;
+    height: 7%;
+    border-color: #332F2F;
+    border-radius: 2px;
+    text-align: center;
+}
+.button {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  
