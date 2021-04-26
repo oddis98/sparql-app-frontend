@@ -11,6 +11,7 @@ input {
   border: 1px solid #b3b3b3;
   border-radius: 1rem;
   margin: 1rem;
+  transition: border-color 1s ease;
 }
 
 input:focus {
@@ -37,6 +38,10 @@ input:focus {
 
 .background > * {
   padding: 0.5rem;
+}
+
+.background > h1 {
+  text-align: center;
 }
 
 .search {
@@ -95,4 +100,15 @@ tr:nth-child(even) {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+@media screen and (max-width: 600px) {
+  .main {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .content {
+    width: 100%;
+    margin: 1rem;
+  }
 }

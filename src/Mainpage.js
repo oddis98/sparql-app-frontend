@@ -1,9 +1,18 @@
 import "./Mainpage.css";
 import React, { useState } from "react";
+import {
+  RadioGroup,
+  Radio,
+  FormControlLabel,
+  FormControl,
+  FormLabel,
+} from "@material-ui/core";
 
 export default function GameSearch() {
   const [info, setInfo] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const [active, setActive] = useState("game");
+
   const search = () => {
     try {
       const requestOptions = {
@@ -11,9 +20,10 @@ export default function GameSearch() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           searchText: searchText.target.value,
+          category: active,
         }),
       };
-      fetch("http://localhost:3000/sparql/select", requestOptions)
+      fetch("http://localhost:5000/sparql/select", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (!data.success) {
@@ -46,6 +56,10 @@ export default function GameSearch() {
     }
   };
 
+  const handleChange = (event) => {
+    setActive(event.target.value);
+  };
+
   return (
     <div className="main">
       <div className="background">
@@ -59,6 +73,22 @@ export default function GameSearch() {
           placeholder="Please enter something ..."
           onChange={setSearchText}
         />
+        <FormControl component="fieldset">
+          <RadioGroup
+            aria-label="category"
+            name="cat1"
+            value={active}
+            onChange={handleChange}
+          >
+            <FormControlLabel value="game" control={<Radio />} label="Game" />
+            <FormControlLabel
+              value="company"
+              control={<Radio />}
+              label="Company"
+            />
+          </RadioGroup>
+        </FormControl>
+
         <button className={"search"} onClick={search}>
           Search
         </button>
